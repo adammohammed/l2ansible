@@ -14,7 +14,7 @@ services:
 
 networks:
   default:
-    exernal:
+    external:
       name: iot
 
 volumes:

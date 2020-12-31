@@ -3,4 +3,4 @@
 
 - hosts: buzzard
   roles:
-    - role: compose
+    - role: influxdb

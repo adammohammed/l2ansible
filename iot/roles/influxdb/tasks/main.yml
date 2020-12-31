@@ -1,0 +1,12 @@
+---
+# This playbook should copy the compose file to the host
+
+- name: Create the infra directory
+  file: path=/home/caps/infra/influxdb state=directory owner=caps group=caps
+
+- name: Copy the compose file to the directory
+  copy: src=roles/influxdb/files/docker-compose.yml dest=/home/caps/infra/influxdb/docker-compose.yml owner=caps group=caps
+
+- name: start the influxdb server
+  command: docker-compose -f /home/caps/infra/influxdb/docker-compose.yml up -d
+  become: yes

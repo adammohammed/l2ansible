@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  influxdb:
+    image: quay.io/influxdb/influxdb:v2.0.3
+    ports:
+      - "8086:8086"
+    volumes:
+      - iot-influx:/var/lib/influxdb
+    environment:
+      INFLUXD_BOLT_PATH: /var/lib/influxdb/influxd.bolt
+      INFLUXD_ENGINE_PATH: /var/lib/influxdb/engine
+      INFLUXD_STORE: bolt
+
+networks:
+  default:
+    exernal:
+      name: iot
+
+volumes:
+  iot-influx:

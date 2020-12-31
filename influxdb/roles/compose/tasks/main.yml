@@ -1,0 +1,8 @@
+---
+# This playbook should copy the compose file to the host
+
+- name: Create the infra directory
+  file: path=/home/caps/infra state=directory owner=caps group=caps
+
+- name: Copy the compose file to the directory
+  copy: src=roles/compose/files/docker-compose.yml dest=/home/caps/infra/docker-compose.yml owner=caps groups=caps

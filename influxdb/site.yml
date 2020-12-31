@@ -1,0 +1,6 @@
+---
+# This playbook should deploy influxdb
+
+- hosts: buzzard
+  roles:
+    - role: compose
